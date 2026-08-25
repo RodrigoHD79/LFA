@@ -23,3 +23,14 @@ Classifique como Regular
 ou Livre de Contexto:
 
 S➔aA|A➔b
+
+Repostas:
+
+
+1. a) S => aS => aaS => aaaS => aaab
+1. b) Pois ao terminar, no final da "palavra" gerada, se aparece a letra b no fim dela.
+
+2. a) S => aSb => aaSbb => aaaSbbb => aaabbb
+2. b) Pois ao terminar, o terminal, que se encontra no meio, fica vazio e só resta os caracteres que estavam a sua direita e esquerda.
+
+3. Regular
