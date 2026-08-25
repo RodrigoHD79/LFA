@@ -1,36 +1,46 @@
-Exercícios Praticos para Fixação
+# Exercícios Práticos para Fixação
 
-Bloco 1 (Derivação)
-Dada G1: S ➔ aS | b
+## Bloco 1 — Derivação
 
-A) Gere a palavra aaab.
+Dada a gramática **G1**:
 
-B) Explique como você
-sabe que a derivação
-terminou.
+**S → aS | b**
 
-Bloco 2 (GLC)
-Dada G2: S ➔ aSb | ε
+### A) Gere a palavra `aaab`.
 
-A) Gere a palavra
-aaabbb.
+**Resposta:**
 
-B) É possível gerar
-aabbb? Justifique.
+`S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaab`
 
-Bloco 3 (Classificação)
-Classifique como Regular
-ou Livre de Contexto:
+### B) Explique como você sabe que a derivação terminou.
 
-S➔aA|A➔b
+**Resposta:**
 
-Repostas:
+A derivação termina quando não há mais símbolos não terminais, como `S`, na palavra gerada. Nesse caso, após aplicar a produção `S → b`, obtemos `aaab`, que contém apenas símbolos terminais.
 
+## Bloco 2 — GLC
 
-1. a) S => aS => aaS => aaaS => aaab
-1. b) Pois ao terminar, no final da "palavra" gerada, se aparece a letra b no fim dela.
+Dada a gramática **G2**:
 
-2. a) S => aSb => aaSbb => aaaSbbb => aaabbb
-2. b) Pois ao terminar, o terminal, que se encontra no meio, fica vazio e só resta os caracteres que estavam a sua direita e esquerda.
+**S → aSb | ε**
 
-3. Regular
+### A) Gere a palavra `aaabbb`.
+
+**Resposta:**
+
+`S ⇒ aSb ⇒ aaSbb ⇒ aaaSbbb ⇒ aaabbb`
+
+### B) É possível gerar `aabbb`? Justifique.
+
+**Resposta:**
+
+Não. A cada aplicação da produção `S → aSb`, é acrescentado um `a` no início e um `b` no final. Portanto, a quantidade de `a`s e `b`s deve ser sempre igual. Como `aabbb` possui dois `a`s e três `b`s, essa palavra não pode ser gerada pela gramática.
+
+## Bloco 3 — Classificação
+
+Classifique a gramática como **Regular** ou **Livre de Contexto**:
+
+**S → aA**  
+**A → b**
+
+**Resposta:** Regular.
