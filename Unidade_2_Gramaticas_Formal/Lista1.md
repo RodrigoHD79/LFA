@@ -565,15 +565,20 @@ L = {b^n \mid n \geq 1}
 $$
 
 1. Escreva as cinco primeiras palavras.
-        R = b, bb, bbb, bbbb, bbbbb.
+
+   R = b, bb, bbb, bbbb, bbbbb.
 
 2. Explique o significado de $b^n$.
-        R =  O "n" indica quantas vezes o símbolo "b" aparece na palavra, como n ≥ 1, a palavra precisa ter ao menos um símbolo "b".
+
+   R =  O "n" indica quantas vezes o símbolo "b" aparece na palavra, como n ≥ 1, a palavra precisa ter ao menos um símbolo "b".
 
 3. A palavra `bbbbbb` pertence à linguagem?
-    R = Sim, ela possuí 6 ocorrências do símbolo "b" (b^6 = bbbbbb).
+
+   R = Sim, ela possuí 6 ocorrências do símbolo "b" (b^6 = bbbbbb).
 
 4. A palavra vazia ($\varepsilon$) pertence à linguagem?
+
+   R = A palavra vazia não pertence à linguagem.
 
 ---
 
