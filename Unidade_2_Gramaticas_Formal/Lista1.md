@@ -88,7 +88,7 @@ Responda:
   
 2. Quais são os símbolos?
 
-    R = são: u, m, b  e  c
+    R = são: u, m, b, c.
   
 3. O símbolo `a` pertence ao alfabeto?
 
