@@ -205,13 +205,13 @@ $$
 
 Classifique cada sequência como **palavra válida** ou **não válida**:
 
-| Sequência | Válida? | Justificativa |
-| --------- | ------- | ------------- |
-| `0101`    |         |               |
-| `00110`   |         |               |
-| `012`     |         |               |
-| `111`     |         |               |
-| `10a`     |         |               |
+| Sequência |    Válida?     | Justificativa |
+| --------- | -------------- | ------------- |
+| `0101`    | palavra válida | Todos os números pertencem a gramática acima. |
+| `00110`   | palavra válida | Todos os números pertencem a gramática acima. |
+| `012`     |   não válida   | O numeral 2 não está contido na gramática.    |
+| `111`     | palavra válida | Todos os números pertencem a gramática acima. |
+| `10a`     |   não válida   | A letra A não está contida na gramática.      |
 
 ---
 
