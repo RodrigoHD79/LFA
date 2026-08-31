@@ -680,7 +680,7 @@ $$
 L={\varepsilon}
 $$    
 
-Resposta = A diferença é que "A" não contém palavra alguma, enquanto B contém uma palavra, a palavra vazia. mesmo estando vazia, "ε" é considerada uma palavra e seu comprimento é 0.
+Resposta = A diferença é que "A" não contém nenhuma palavra, enquanto B contém uma palavra, a palavra vazia. mesmo estando vazia, "ε" é considerada uma palavra e seu comprimento é 0.
     
 Depois responda:
 
