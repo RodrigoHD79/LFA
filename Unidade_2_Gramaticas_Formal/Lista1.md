@@ -889,7 +889,6 @@ $$
 Uma derivação termina quando não existem mais não terminais.
 
 ---
-
 ## Exercício para o estudante
 
 Considere:
@@ -901,9 +900,28 @@ $$
 Começando com $S$:
 
 1. Aplique a regra uma vez.
+
+$$
+S\Rightarrow0S
+$$
+
 2. Aplique a regra duas vezes.
+
+$$
+0S\Rightarrow00S
+$$
+
 3. Aplique a regra três vezes.
+
+$$
+00S\Rightarrow000S
+$$
+
 4. Escreva a sequência completa de derivação.
+
+$$
+S\Rightarrow0S\Rightarrow00S\Rightarrow000S
+$$
 
 ---
 
