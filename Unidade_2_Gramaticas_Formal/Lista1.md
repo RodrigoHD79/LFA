@@ -83,18 +83,23 @@ $$
 Responda:
 
 1. Quantos símbolos existem no alfabeto?
+
   R = 04 símbolos
   
 2. Quais são os símbolos?
+
   R = são: u, m, b e c
   
 3. O símbolo `a` pertence ao alfabeto?
+
   R = O símbolo "a" não aparece em Σ.
 
 4. O símbolo `d` pertence ao alfabeto?
+
   R = O símbolo "d" não aparece em Σ.
 
 5. Escreva uma palavra formada por símbolos desse alfabeto.
+
   R = um.
 
 ---
