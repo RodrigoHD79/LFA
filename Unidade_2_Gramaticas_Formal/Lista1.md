@@ -331,12 +331,12 @@ $$
 
 Determine se as afirmações são **verdadeiras ou falsas**:
 
-1. $0 \in \Sigma$
-2. $1 \in \Sigma$
-3. $01 \in \Sigma$
-4. $01 \in \Sigma^*$
-5. $2 \in \Sigma$
-6. $101 \in \Sigma^*$
+1. $0 \in \Sigma$  -> V. 0 pertence à gramática.
+2. $1 \in \Sigma$  -> V. 1 pertence à gramática.
+3. $01 \in \Sigma$ -> F. 01 não pertence à gramática, como um símbolo.
+4. $01 \in \Sigma^*$ -> V. 01 pertence à gramática, como uma palavra.
+5. $2 \in \Sigma$ -> F. 2 não pertence à gramática.
+6. $101 \in \Sigma^*$ -> V. 101 pertence à gramática, como uma palavra.
 
 Justifique cada resposta.
 
