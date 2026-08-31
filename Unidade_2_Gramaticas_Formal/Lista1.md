@@ -679,12 +679,21 @@ $$
 $$
 L={\varepsilon}
 $$
-
+    Resposta = A diferença é que "A" não contém palavra alguma, enquanto B contém uma palavra, a palavra vazia. mesmo estando vazia, "ε" é considerada uma palavra e seu comprimento é 0.
+    
 Depois responda:
 
 1. Qual delas possui uma palavra?
+
+    R = A linguagem L = ε possui uma palavra, a vazia.
+
 2. Qual delas não possui nenhuma palavra?
+
+    R = R = A linguagem L = Ø não possuí nenhuma palavra.
+
 3. Qual é o comprimento da palavra $\varepsilon$?
+
+    R = A palavra vazia ε possui comprimento zero.
 
 ---
 
