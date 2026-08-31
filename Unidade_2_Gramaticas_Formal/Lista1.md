@@ -84,7 +84,7 @@ Responda:
 
 1. Quantos símbolos existem no alfabeto?
 
-  R = 04 símbolos
+    R = 04 símbolos
   
 2. Quais são os símbolos?
 
