@@ -1065,6 +1065,98 @@ $$
 
 **Escreva todos os passos da derivação.**
 
+### Passo 1 — Começar pelo símbolo inicial
+
+$$
+S
+$$
+
+### Passo 2 — Produzir o primeiro `a`
+
+Utilizamos:
+
+$$
+S\rightarrow aS
+$$
+
+Então:
+
+$$
+S\Rightarrow aS
+$$
+
+### Passo 3 — Produzir o segundo `a`
+
+Ainda temos:
+
+$$
+S
+$$
+
+Aplicamos novamente:
+
+$$
+S\rightarrow aS
+$$
+
+Logo:
+
+$$
+aS\Rightarrow aaS
+$$
+
+### Passo 4 — Produzir o terceiro `a`
+
+Ainda temos:
+
+$$
+S
+$$
+
+Aplicamos novamente:
+
+$$
+S\rightarrow aS
+$$
+
+Logo:
+
+$$
+aaS\Rightarrow aaaS
+$$
+
+### Passo 5 — Produzir `b`
+
+Agora temos:
+
+```text
+aaaS
+```
+
+Queremos terminar com `b`.
+
+Utilizamos:
+
+$$
+S\rightarrow b
+$$
+
+Então:
+
+$$
+aaaS\Rightarrow aaab
+$$
+
+### Derivação completa
+
+$$
+\boxed{S\Rightarrow aS\Rightarrow aaS\Rightarrow aaaS\Rightarrow aaab}
+$$
+
+---
+
+## Derivação Completa
+`S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaab`
 ---
 
 # 10. Identificando palavras geradas por uma gramática
