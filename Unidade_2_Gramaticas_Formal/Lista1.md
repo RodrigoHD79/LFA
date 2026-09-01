@@ -801,10 +801,34 @@ $$
 Identifique:
 
 1. O conjunto de variáveis.
-2. O conjunto de terminais.
-3. O conjunto de produções.
-4. O símbolo inicial.
-5. Qual palavra pode ser gerada por essa gramática?
+
+$$
+V = {S,A}
+$$
+
+3. O conjunto de terminais.
+
+$$
+T = {0,1}
+$$
+
+4. O conjunto de produções.
+
+$$
+P = {S \rightarrow\ 0A, A \rightarrow\ 1}
+$$
+
+5. O símbolo inicial.
+
+$$
+S
+$$
+
+6. Qual palavra pode ser gerada por essa gramática?
+
+$$
+01
+$$
 
 ---
 
@@ -1308,11 +1332,39 @@ $$
 Determine se cada palavra pode ser gerada:
 
 1. `1`
+
+$$
+S \rightarrow\ 1
+$$
+
 2. `01`
+
+$$
+S \rightarrow\ 0S \rightarrow\ 01
+$$
+
 3. `001`
+
+$$
+S \rightarrow\ 0S \rightarrow\ 00S \rightarrow\ 001
+$$
+
 4. `0001`
+
+$$
+S \rightarrow\ 0S \rightarrow\ 00S \rightarrow\ 000S \rightarrow\ 0001
+$$
+
 5. `101`
-6. `1001`
+
+Não pode ser gerado.
+Porque o terminal 1 só pode aparecer no final.
+
+7. `1001`
+
+Não pode ser gerado.
+O terminal 1 só pode aparecer no final, pois encerra a derivação ($S \rightarrow 1$).
+
 
 Para as palavras que podem ser geradas, apresente a derivação completa.
 
