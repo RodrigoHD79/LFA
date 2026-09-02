@@ -1,3 +1,5 @@
+01/09/2026
+
 # Lista de Exercícios — Autômatos Finitos Determinísticos (AFD)
 
 > **Disciplina:** Teoria das Linguagens e Autômatos  
