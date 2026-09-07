@@ -13,12 +13,13 @@
 
 | Campo | Preenchimento |
 |---|---|
-| Turma | |
-| Data | |
-| Integrante 1 | |
-| Integrante 2 | |
-| Integrante 3 | |
-| Integrante 4 | |
+| Turma |     Ciência da Computação - N1            |
+|  Data |            01/09/2026                     |
+| Integrante 1 | Filipe Pedais Carvalho             |
+| Integrante 2 | Guilherme Rodrigues de Almeida     |
+| Integrante 3 | Paulo Henrique de Melo Loiola      |
+| Integrante 4 | Pedro Henrique Sipriano Cavalcante |
+| Integrante 5 | Rodrigo Damasceno Santos           |
 
 ## Orientações
 
@@ -44,11 +45,18 @@ Ligado    --pressionar--> Desligado
 Responda:
 
 1. Quantos estados existem?
+   R: Dois estados. Ligado e Desligado.
 2. Qual é o estado inicial, considerando que a lâmpada começa apagada?
+   R: O estado inicial é desligado.
 3. Qual entrada provoca uma transição?
+   R: Pressionar
 4. Partindo de `Desligado`, qual será o estado após um acionamento?
+   R: O próximo estado será Ligado.
 5. Partindo de `Desligado`, qual será o estado após dois acionamentos?
+   R: Após dois acionamentos, o estado estará em Desligado novamente.
 6. Explique o funcionamento do sistema com suas palavras.
+   R: O sistema recebe um estado inicial, se o estado for desligado ao ser pressionado o estado muda para ligado. Já quando o sistema está com o
+      estado igual a ligado, ao ser pressionado seu estado é alterado para desligado. Funcionando como um interruptor. 
 
 ## Exercício 2 — Porta automática
 
