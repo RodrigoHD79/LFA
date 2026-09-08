@@ -312,6 +312,7 @@ R =
 
 Definição formal
 
+
 $$M = (\Sigma, Q, \delta, q_0, F)$$
 
 onde:
