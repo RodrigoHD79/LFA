@@ -72,10 +72,10 @@ Complete a tabela:
 
 | Estado atual | Entrada | Próximo estado |
 |---|---|---|
-| Fechado | pessoa_detectada | |
-| Fechado | nenhuma_pessoa | |
-| Aberto | pessoa_detectada | |
-| Aberto | nenhuma_pessoa | |
+| Fechado | pessoa_detectada | Aberto |
+| Fechado | nenhuma_pessoa | Fechado |
+| Aberto | pessoa_detectada | Aberto |
+| Aberto | nenhuma_pessoa | Fechado |
 
 Depois, desenhe o diagrama de estados correspondente e indique o estado inicial.
 
