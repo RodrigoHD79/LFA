@@ -398,7 +398,7 @@ Construa um AFD sobre o alfabeto
 L(M) = \{w \in \{0,1\}^{*} \mid w \text{ possui pelo menos dois zeros consecutivos}\}
 |
 
-A expressão “dois zeros consecutivos” significa que a cadeia contém a substring `00`.
+A expressão “dois zeros consecutivos” significa que a cadeia contém a substring 00.
 
 ---
 1. Análise prévia
@@ -407,29 +407,29 @@ O que o estado inicial representa?
 
 O estado inicial |q_0| representa que a cadeia ainda não contém dois zeros consecutivos. Isso inclui:
 
-- nenhuma ocorrência de `0`;
-- o último símbolo lido não é `0`;
+- nenhuma ocorrência de 0;
+- o último símbolo lido não é 0;
 - a cadeia está vazia.
 
-O que ocorre quando aparece o primeiro `0`?
+O que ocorre quando aparece o primeiro 0?
 
-Ao ler o primeiro `0`, o autômato vai para |q_1|. Esse estado indica que o último símbolo lido foi `0`, mas ainda não foi encontrada a sequência `00`.
+Ao ler o primeiro 0, o autômato vai para |q_1|. Esse estado indica que o último símbolo lido foi 0, mas ainda não foi encontrada a sequência 00.
 
-O que ocorre quando outro `0` aparece imediatamente depois?
+O que ocorre quando outro 0 aparece imediatamente depois?
 
-Se o autômato estiver em |q_1| e ler outro `0`, significa que foi encontrada a sequência `00`. Nesse caso, ele vai para |$q_2$|.
+Se o autômato estiver em |q_1| e ler outro 0, significa que foi encontrada a sequência 00. Nesse caso, ele vai para |q_2|.
 
-Depois de encontrar `00`, a cadeia pode deixar de ser aceita?
+Depois de encontrar 00, a cadeia pode deixar de ser aceita?
 
-Não. Depois que a sequência `00` é encontrada, a cadeia continuará sendo aceita, independentemente dos símbolos que aparecerem depois. Por isso, |$q_2$| possui laços com `0` e `1`.
+Não. Depois que a sequência 00 é encontrada, a cadeia continuará sendo aceita, independentemente dos símbolos que aparecerem depois. Por isso, |q_2| possui laços com 0 e 1.
 
 ### Quantos estados são necessários?
 
 São necessários três estados:
 
-- |q_0|: nenhum `00` foi encontrado e o último símbolo não é `0`;
-- |q_1|: o último símbolo lido foi um único `0`;
-- |q_2|: a sequência `00` já foi encontrada.
+- |q_0|: nenhum 00 foi encontrado e o último símbolo não é 0;
+- |q_1|: o último símbolo lido foi um único 0;
+- |q_2|: a sequência 00 já foi encontrada.
 
 ---
 
@@ -467,9 +467,9 @@ Significado dos estados
 
 | Estado | Significado |
 |---|---|
-| |$q_0$| | A sequência `00` ainda não foi encontrada e o último símbolo não é `0` |
-| |$q_1$| | O último símbolo lido foi `0`, mas ainda não há `00` |
-| |$q_2$| | A sequência `00` já foi encontrada |
+| |q_0| | A sequência 00 ainda não foi encontrada e o último símbolo não é 0 |
+| |q_1| | O último símbolo lido foi 0, mas ainda não há 00 |
+| |q_2| | A sequência 00 já foi encontrada |
 
 ---
 
@@ -515,9 +515,9 @@ As transições são:
 
 | Estado | Lê `0` | Lê `1` | Descrição |
 |---|---|---|---|
-| |\rightarrow q_0| | |q_1| | |q_0| | Ainda não encontrou `00` |
-| |q_1| | |q_2| | |q_0| | Acabou de ler um `0` |
-| |*q_2| | |q_2| | |q_2| | Já encontrou `00` |
+| |\rightarrow q_0| | |q_1| | |q_0| | Ainda não encontrou 00 |
+| |q_1| | |q_2| | |q_0| | Acabou de ler um 0 |
+| |*q_2| | |q_2| | |q_2| | Já encontrou 00 |
 
 Legenda:
 
@@ -544,7 +544,7 @@ O estado |q_2| é final porque representa que a cadeia já possui pelo menos doi
 
 6. Testes das cadeias aceitas
 
-Cadeia `00`
+Cadeia 00
 
 |
 q_0 \xrightarrow{0} q_1 \xrightarrow{0} q_2
@@ -556,7 +556,7 @@ Resultado: aceita
 
 ---
 
-Cadeia `001`
+Cadeia 001
 
 |
 q_0 \xrightarrow{0} q_1
@@ -570,7 +570,7 @@ Resultado: aceita
 
 ---
 
-Cadeia `100`
+Cadeia 100
 
 |
 q_0 \xrightarrow{1} q_0
@@ -584,7 +584,7 @@ Resultado: aceita
 
 ---
 
-Cadeia `1001`
+Cadeia 1001
 
 |
 q_0 \xrightarrow{1} q_0
@@ -599,7 +599,7 @@ Resultado: aceita
 
 ---
 
-Cadeia `110011`
+Cadeia 110011
 
 |
 q_0 \xrightarrow{1} q_0
@@ -616,7 +616,7 @@ Resultado: aceita
 
 ---
 
-Cadeia `0000`
+Cadeia 0000
 
 |
 q_0 \xrightarrow{0} q_1
@@ -645,7 +645,7 @@ Resultado: rejeita
 
 ---
 
-Cadeia `0`
+Cadeia 0
 
 |
 q_0 \xrightarrow{0} q_1
@@ -657,7 +657,7 @@ Resultado: rejeita
 
 ---
 
-Cadeia `1`
+Cadeia 1
 
 |
 q_0 \xrightarrow{1} q_0
@@ -669,7 +669,7 @@ Resultado: **rejeita**
 
 ---
 
-### Cadeia `01`
+Cadeia 01
 
 |
 q_0 \xrightarrow{0} q_1
@@ -682,7 +682,7 @@ Resultado: **rejeita**
 
 ---
 
-Cadeia `10`
+Cadeia 10
 
 |
 q_0 \xrightarrow{1} q_0
@@ -695,7 +695,7 @@ Resultado: **rejeita**
 
 ---
 
-Cadeia `10101`
+Cadeia 10101
 
 |
 q_0 \xrightarrow{1} q_0
@@ -716,18 +716,18 @@ Resultado: rejeita
 
 | Cadeia | Estado final | Resultado |
 |---|---|---|
-| `00` | |$q_2$| | Aceita |
-| `001` | |$q_2$| | Aceita |
-| `100` | |$q_2$| | Aceita |
-| `1001` | |$q_2$| | Aceita |
-| `110011` | |$q_2$| | Aceita |
-| `0000` | |$q_2$| | Aceita |
-| |$\varepsilon$| | |$q_0$| | Rejeita |
-| `0` | |$q_1$| | Rejeita |
-| `1` | |$q_0$| | Rejeita |
-| `01` | |$q_0$| | Rejeita |
-| `10` | |$q_1$| | Rejeita |
-| `10101` | |$q_0$| | Rejeita |
+| 00 | |$q_2$| | Aceita |
+| 001 | |$q_2$| | Aceita |
+| 100 | |$q_2$| | Aceita |
+| 1001 | |$q_2$| | Aceita |
+| 110011 | |$q_2$| | Aceita |
+| 0000 | |$q_2$| | Aceita |
+| |\varepsilon| | |q_0| | Rejeita |
+| 0 | |$q_1$| | Rejeita |
+| 1 | |$q_0$| | Rejeita |
+| 01 | |$q_0$| | Rejeita |
+| 10 | |$q_1$| | Rejeita |
+| 10101 | |$q_0$| | Rejeita |
 
 ---
 
