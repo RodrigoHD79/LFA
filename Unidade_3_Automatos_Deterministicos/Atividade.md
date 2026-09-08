@@ -231,30 +231,30 @@ A função de transição é definida por:
 •	Se for lido o símbolo 11, o autômato vai para q1q1.
 
 F. Tabela de transições
-   Estado atual	Entrada 0	Entrada 1
-   q0q_0q0        q0q_0q0     q1q_1q1
-   q1q_1q1        q0q_0q0     q1q_1q1
+Estado atual	Entrada 0	Entrada 1
+q0q_0q0        q0q_0q0     q1q_1q1
+q1q_1q1        q0q_0q0     q1q_1q1
 
 G. Diagrama do AFD
-   ┌──────1───────┐
-   │              ▼
-   → (q0) ──1──> ((q1))
-   ▲              │
-   │              │ 1
-   └─────0─────── ┘
+┌──────1───────┐
+│              ▼
+→ (q0) ──1──> ((q1))
+▲              │
+│              │ 1
+└─────0─────── ┘
 (q0) --0--> (q0)
 (q1) --1--> (q0)
 (q1) --1--> (q1)
 
 Uma representação mais detalhada:
 
-  ┌──────1───────┐
-  │              │
-  │              ▼
-  → (q0) ────> ((q1))
-  ▲               │
-  │               │
-  └────── 0 ──────┘
+┌──────1───────┐
+│              │
+│              ▼
+→ (q0) ────> ((q1))
+▲               │
+│               │
+└────── 0 ──────┘
 
 Laços:
 - q0 --0--> q0
