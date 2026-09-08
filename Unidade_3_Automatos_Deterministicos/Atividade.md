@@ -212,25 +212,31 @@ Entregue: conjunto de estados, alfabeto, estado inicial, estados finais, tabela,
 
 R =
 A. Conjunto de estados
+
 Q={q0,q1} Q={q0,q1}
 •	q0q0: estado inicial, usado quando a cadeia está vazia ou termina em 00;
 •	q1q1: estado final, usado quando a cadeia termina em 11.
 
 B. Alfabeto
+
 Σ={0,1} Σ={0,1}
 
 C. Estado inicial
+
 q0q0
 
 D. Estados finais
+
 F={q1} F={q1}
 
 E. Função de transição
+
 A função de transição é definida por:
 •	Se for lido o símbolo 00, o autômato vai para q0q0;
 •	Se for lido o símbolo 11, o autômato vai para q1q1.
 
 F. Tabela de transições
+
 Estado atual  q0 	
 
 Entrada 0     q0
@@ -255,13 +261,19 @@ G. Diagrama do AFD
 
 Uma representação mais detalhada:
 
-┌──────1───────┐
-│              │
-│              ▼
-→ (q0) ────> ((q1))
-▲               │
-│               │
-└────── 0 ──────┘
+                 1
+          ┌─────────────┐
+          │             │
+          │             ▼
+       → (q0) ────────> ((q1))
+          ▲               │
+          │               │
+          └────── 0 ──────┘
+
+Laços:
+- q0 --0--> q0
+- q1 --1--> q1
+
 
 Laços:
 - q0 --0--> q0
@@ -269,28 +281,18 @@ Laços:
 
 H. O estado q1q1 é representado com dois círculos porque é o estado final.
 
-Cadeia........Caminho percorrido....................................................................................Resultado
-
-111...........q0→1q1q_0 \xrightarrow{1} q_1q01q1....................................................................Aceita
-
-010101........q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1q00q01q1.........................................Aceita
-
-101101101.....q0→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1q01q10q01q1..............Aceita
-
-000100010001..q0→0q0→0q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} ..............q_1q00q00q00q01q1.....................................................................................Aceita
-
-110111011101	q0→1q1→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} ...............q_1q01q11q10q01q1....................................................................................Aceita
-
-ε\varepsilonε..Permanece em q0q_0q0.................................................................................Rejeita
-
-000............q0→0q0q_0 \xrightarrow{0} q_0q00q0...................................................................Rejeita
-
-101010.........q0→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0q01q10q0........................................Rejeita
-
-100100100......q0→1q1→0q0→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0q01q10q00q0.............Rejeita
-
-111011101110...q0→1q1→1q1→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} ..............._0q01q11q11q10q0......................................................................................Rejeita
-
+| Cadeia | Caminho percorrido | Resultado |
+| --- | --- | --- |
+| 111 | q0→1q1q_0 \\xrightarrow{1} q_1q0​1​q1​ | Aceita |
+| 010101 | q0→0q0→1q1q_0 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​0​q0​1​q1​ | Aceita |
+| 101101101 | q0→1q1→0q0→1q1q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​1​q1​0​q0​1​q1​ | Aceita |
+| 000100010001 | q0→0q0→0q0→0q0→1q1q_0 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​0​q0​0​q0​0​q0​1​q1​ | Aceita |
+| 110111011101 | q0→1q1→1q1→0q0→1q1q_0 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​1​q1​1​q1​0​q0​1​q1​ | Aceita |
+| ε\\varepsilonε | Permanece em q0q_0q0​ | Rejeita |
+| 000 | q0→0q0q_0 \\xrightarrow{0} q_0q0​0​q0​ | Rejeita |
+| 101010 | q0→1q1→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0q0​1​q1​0​q0​ | Rejeita |
+| 100100100 | q0→1q1→0q0→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0q0​1​q1​0​q0​0​q0​ | Rejeita |
+| 111011101110 | q0→1q1→1q1→1q1→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0q0​1​q1​1​q1​1​q1​0​q0​ | Rejeita |
 
 
 I. O AFD aceita exatamente as cadeias que terminam em 1, pois somente o estado q1 é final. Sempre que o último símbolo lido for 1, o autômato estará em q1. Quando o último símbolo for 0, o autômato retornará para q0, que não é um estado final.
