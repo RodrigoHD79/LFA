@@ -307,7 +307,64 @@ Analise: `ε`, `0`, `1`, `11`, `101`, `1100` e `10101`.
 
 Apresente a definição formal `M = (Σ, Q, δ, q0, F)`, a tabela, o diagrama e o processamento das cadeias. Lembre-se de que basta controlar duas situações: quantidade par ou ímpar de símbolos `1`.
 
+
+R = 
+
+Definição formal
+
+$$M = (\Sigma, Q, \delta, q_0, F)$$
+
+onde:
+- $\Sigma = \{0, 1\}$
+- $Q = \{q_0, q_1\}$
+- $\delta: Q \times \Sigma \rightarrow Q$
+- $q_0$ = estado inicial
+- $F = \{q_0\}$
+
+Função de transição $\delta$
+
+| $\delta$ | 0 | 1 |
+|----------|---|---|
+| $q_0$ | $q_0$ | $q_1$ |
+| $q_1$ | $q_1$ | $q_0$ |
+
+Definição explícita:
+- $\delta(q_0, 0) = q_0$
+- $\delta(q_0, 1) = q_1$
+- $\delta(q_1, 0) = q_1$
+- $\delta(q_1, 1) = q_0$
+
+Interpretação: $q_0$ representa quantidade par de 1s; $q_1$ representa quantidade ímpar de 1s.
+
+Diagrama de estados
+
+```mermaid
+stateDiagram-v2
+    [*] --> q0
+    q0 --> q0: 0
+    q0 --> q1: 1
+    q1 --> q1: 0
+    q1 --> q0: 1
+    q0 --> [*]
+```
+
+Processamento das cadeias
+
+| Cadeia | Sequência de transições | Estado final | Aceita? |
+|--------|-------------------------|--------------|---------|
+| $\varepsilon$ | $q_0$ | $q_0$ | ✓ |
+| $0$ | $q_0 \xrightarrow{0} q_0$ | $q_0$ | ✓ |
+| $1$ | $q_0 \xrightarrow{1} q_1$ | $q_1$ | ✗ |
+| $11$ | $q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_0$ | $q_0$ | ✓ |
+| $101$ | $q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_1 \xrightarrow{1} q_0$ | $q_0$ | ✓ |
+| $1100$ | $q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0$ | $q_0$ | ✓ |
+| $10101$ | $q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_1 \xrightarrow{1} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1$ | $q_1$ | ✗ |
+
+Conclusão: O AFD aceita cadeias com quantidade par (incluindo zero) de símbolos 1.
+
+
 ## Exercício 9 — Pelo menos dois zeros consecutivos
+
 
 Construa um AFD para:
 
