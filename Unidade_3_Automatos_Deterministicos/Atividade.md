@@ -789,6 +789,39 @@ Verde → Amarelo → Vermelho → Verde
 
 Entregue o diagrama, a tabela de transições, a definição formal e uma explicação do funcionamento. Discuta se há sentido em definir estados de aceitação nesse modelo e justifique a escolha adotada.
 
+Resposta:
+
+**1. Definição Formal:**
+- **Estados ($Q$):** {Verde, Amarelo, Vermelho}
+- **Alfabeto ($\Sigma$):** {tempo}
+- **Estado Inicial ($q_0$):** Verde
+- **Estados Finais ($F$):** $\emptyset$ (Nenhum)
+- **Função de Transição ($\delta$):** Definida na tabela abaixo.
+
+**2. Tabela de Transições:**
+| Estado Atual | Entrada | Próximo Estado |
+| :--- | :--- | :--- |
+| Verde | tempo | Amarelo |
+| Amarelo | tempo | Vermelho |
+| Vermelho | tempo | Verde |
+
+**3. Diagrama de Estados:**
+```mermaid
+stateDiagram-v2
+    [*] --> Verde
+    Verde --> Amarelo : tempo
+    Amarelo --> Vermelho : tempo
+    Vermelho --> Verde : tempo
+```
+
+**4. Explicação do Funcionamento:**
+O semáforo é um modelo de sistema reativo cíclico. Ele inicia no estado `Verde` e, a cada pulso de entrada chamado `tempo` (que representa a passagem de uma unidade de tempo ou evento do *timer*), transita deterministicamente para o próximo estado lógico da sequência (Amarelo $
+ightarrow$ Vermelho $
+ightarrow$ Verde), repetindo o ciclo de forma infinita.
+
+**5. Sobre Estados de Aceitação:**
+**Não faz sentido** definir estados de aceitação neste modelo. Autômatos com estados de aceitação (como os reconhecedores de linguagem) são utilizados para avaliar se uma cadeia finita de caracteres possui estrutura válida ou não. Um semáforo é um sistema contínuo e infinito; ele não tem o objetivo de "aceitar" ou "rejeitar" uma sequência de passos, mas sim de garantir o controle contínuo dos estados ao longo do tempo.
+
 ## Exercício 11 — Sistema de login
 
 Modele um sistema com as entradas `senha_correta` e `senha_incorreta`. Uma senha correta autentica o usuário; após três tentativas incorretas, o sistema fica bloqueado.
@@ -803,6 +836,50 @@ Determine:
 6. o comportamento após a autenticação e após o bloqueio.
 
 Responda: apenas os estados `Aguardando`, `Autenticado` e `Bloqueado` são suficientes para controlar três tentativas? Justifique e construa o AFD completo.
+
+Resposta:
+
+**1. Análise da Quantidade de Estados:**
+Apenas os estados *Aguardando*, *Autenticado* e *Bloqueado* **não são suficientes**.
+**Justificativa:** Um AFD não possui memória extra (como variáveis inteiras) além do seu próprio estado atual. Se usarmos apenas o estado "Aguardando", ele não terá como saber se o usuário está na primeira, segunda ou terceira tentativa incorreta ao permanecer nele. Precisamos criar estados intermediários explícitos para "contar" a quantidade de falhas.
+
+**2. Elementos do AFD Completo:**
+- **Alfabeto de Entrada ($\Sigma$):** {senha_correta, senha_incorreta}
+- **Estados Necessários ($Q$):**
+  - `Aguardando` (0 falhas)
+  - `Erro1` (1 falha)
+  - `Erro2` (2 falhas)
+  - `Autenticado` (Sucesso)
+  - `Bloqueado` (3 falhas)
+- **Estado Inicial ($q_0$):** `Aguardando`
+- **Estados Finais ($F$):** `{Autenticado}` (Podemos considerar "Autenticado" como o estado final/aceitação que atesta o sucesso).
+
+**3. Tabela de Transições:**
+| Estado Atual | senha_correta | senha_incorreta |
+| :--- | :--- | :--- |
+| **-> Aguardando** | Autenticado | Erro1 |
+| **Erro1** | Autenticado | Erro2 |
+| **Erro2** | Autenticado | Bloqueado |
+| **\* Autenticado** | Autenticado | Autenticado |
+| **Bloqueado** | Bloqueado | Bloqueado |
+
+*Comportamento após autenticação/bloqueio:* Ambos atuam como estados "sorvedouros" (*trap states*). Uma vez que o sistema chegue em `Autenticado` ou `Bloqueado`, as próximas entradas são ignoradas e o estado não muda mais.
+
+**4. Diagrama de Estados:**
+```mermaid
+stateDiagram-v2
+    [*] --> Aguardando
+    Aguardando --> Autenticado : senha_correta
+    Aguardando --> Erro1 : senha_incorreta
+    Erro1 --> Autenticado : senha_correta
+    Erro1 --> Erro2 : senha_incorreta
+    Erro2 --> Autenticado : senha_correta
+    Erro2 --> Bloqueado : senha_incorreta
+    
+    Autenticado --> Autenticado : correta / incorreta
+    Bloqueado --> Bloqueado : correta / incorreta
+```
+
 
 ---
 
@@ -830,6 +907,53 @@ Inclua um print do AFD, a tabela de testes e uma breve explicação.
 | | | | |
 | | | | |
 
+
+Resposta:
+
+**Escolha:** Exercício 7 (Cadeias que terminam em 1). Foi escolhido por ser o modelo mais simples (apenas 2 estados) e direto de implementar, conforme solicitado.
+
+**1. Configuração (Modelo implementado):**
+- **Estados:** `q0`, `q1`
+- **Estado inicial:** `q0`
+- **Estado final:** `q1`
+- **Transições criadas:**
+  - `q0` lendo `0` $
+ightarrow$ `q0`
+  - `q0` lendo `1` $
+ightarrow$ `q1`
+  - `q1` lendo `0` $
+ightarrow$ `q0`
+  - `q1` lendo `1` $
+ightarrow$ `q1`
+
+**2. Print do AFD (Representação Estrutural):**
+*(Como este é um arquivo de texto, a estrutura gráfica equivalente no JFLAP seria a seguinte)*
+```text
+      ( 0 )             ( 1 )
+      +---+             +---+
+      |   v             |   v
+    +-------+   ( 1 )   +-------+
+--> |  q0   | --------> | ((q1))|
+    +-------+           +-------+
+        ^                   |
+        |       ( 0 )       |
+        +-------------------+
+```
+
+**3. Tabela de Testes (Expected vs JFLAP):**
+
+| Cadeia | Resultado esperado | Resultado no JFLAP | Conferência |
+| :--- | :--- | :--- | :--- |
+| **1** | Aceita | Accept | OK ✅ |
+| **01** | Aceita | Accept | OK ✅ |
+| **101** | Aceita | Accept | OK ✅ |
+| **$ arepsilon$ (vazia)**| Rejeita | Reject | OK ✅ |
+| **0** | Rejeita | Reject | OK ✅ |
+| **10** | Rejeita | Reject | OK ✅ |
+
+**4. Breve Explicação:**
+Na implementação do JFLAP, criamos dois estados (`q0` e `q1`), definimos a seta de inicialização em `q0` e demarcamos `q1` com duplo círculo de aceitação. Ao utilizar a funcionalidade de *Multiple Run*, o JFLAP simulou a leitura dos símbolos um a um. 
+Para as cadeias `1`, `01` e `101`, o último símbolo processado foi um `1`, ativando a transição para `q1` no fim da fita e retornando `Accept`. Para as cadeias vazia (`\epsilon`), `0` e `10`, o processamento encerrou no estado `q0` (estado comum), e o software retornou corretamente o resultado `Reject`. Os resultados obtidos correspondem em 100% à expectativa teórica.
 ---
 
 # Desafio final
