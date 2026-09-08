@@ -95,12 +95,33 @@ Considere um AFD com `Σ = {0,1}`, `Q = {q0,q1}`, estado inicial `q0`, estado fi
 Identifique e explique:
 
 1. o alfabeto `Σ`;
+
+   **R:** $\Sigma = \{0, 1\}$. Representa o conjunto finito de símbolos de entrada que a máquina pode ler.
+
 2. o conjunto de estados `Q`;
+
+   **R:** $Q = \{q0, q1\}$. É o conjunto finito de todas as etapas ou situações possíveis do autômato.
+
 3. o estado inicial;
+
+   **R:** $q0$ ($q0 \in Q$). Indica o estado onde o processamento de qualquer cadeia é iniciado.
+
 4. o conjunto de estados finais `F`;
+
+   **R:** $F = \{q1\}$ ($F \subseteq Q$). Representa o conjunto de estados que determinam a condição de aceitação da cadeia.
+
 5. os símbolos que podem ser lidos;
+
+   **R:** $0$ e $1$. São os caracteres pertencentes ao alfabeto $\Sigma$ que disparam as transições de estado.
+
 6. o significado do círculo duplo em um diagrama;
+
+   **R:** Identifica visualmente um estado final (de aceitação).
+
 7. o significado da seta sem origem apontando para um estado.
+
+   **R:** Indica qual estado é o estado inicial ($q0$) do autômato.
+
 
 ## Exercício 4 — A quíntupla do AFD
 
