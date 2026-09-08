@@ -232,7 +232,9 @@ A função de transição é definida por:
 
 F. Tabela de transições
 Estado atual  q0 	
+
 Entrada 0     q0
+
 Entrada 1     q1
 
 G. Diagrama do AFD
@@ -262,27 +264,27 @@ Laços:
 
 H. O estado q1q1 é representado com dois círculos porque é o estado final.
 
-Cadeia	     Caminho percorrido	                                                                                   Resultado
+Cadeia........Caminho percorrido....................................................................................Resultado
 
-111	        q0→1q1q_0 \xrightarrow{1} q_1q01q1                                                                    Aceita
+111...........q0→1q1q_0 \xrightarrow{1} q_1q01q1....................................................................Aceita
 
-010101	     q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1q00q01q1                                         Aceita
+010101........q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1q00q01q1.........................................Aceita
 
-101101101     q0→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1q01q10q01q1              Aceita
+101101101.....q0→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1q01q10q01q1..............Aceita
 
-000100010001	q0→0q0→0q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1}                             q_1q00q00q00q01q1                                                                                    Aceita
+000100010001..q0→0q0→0q0→0q0→1q1q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} ..............q_1q00q00q00q01q1.....................................................................................Aceita
 
-110111011101	q0→1q1→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1}                             q_1q01q11q10q01q1                                                                                   Aceita
+110111011101	q0→1q1→1q1→0q0→1q1q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} ...............q_1q01q11q10q01q1....................................................................................Aceita
 
-ε\varepsilonε	Permanece em q0q_0q0                                                                                 Rejeita
+ε\varepsilonε..Permanece em q0q_0q0.................................................................................Rejeita
 
-000	         q0→0q0q_0 \xrightarrow{0} q_0q00q0                                                                   Rejeita
+000............q0→0q0q_0 \xrightarrow{0} q_0q00q0...................................................................Rejeita
 
-101010	      q0→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0q01q10q0                                        Rejeita
+101010.........q0→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0q01q10q0........................................Rejeita
 
-100100100	   q0→1q1→0q0→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0q01q10q00q0             Rejeita
+100100100......q0→1q1→0q0→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0q01q10q00q0.............Rejeita
 
-111011101110	q0→1q1→1q1→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0}                             _0q01q11q11q10q0                                                                                     Rejeita
+111011101110...q0→1q1→1q1→1q1→0q0q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} ..............._0q01q11q11q10q0......................................................................................Rejeita
 
 
 
