@@ -160,12 +160,47 @@ Considere `Σ = {0,1}`, `Q = {q0,q1,q2}`, estado inicial `q0`, `F = {q1}` e:
 Responda:
 
 1. Qual é o resultado de `δ(q0,0)`?
-2. Qual é o resultado de `δ(q0,1)`?
-3. Qual é o resultado de `δ(q1,0)`?
-4. Qual é o resultado de `δ(q2,1)`?
-5. Qual é o estado de aceitação?
+
+
+**R:** `δ(q0,0)` = q0 cruzando a linha do $q_0$ com a coluna do $0$ o gente cai nele mesmo.
+
+3. Qual é o resultado de `δ(q0,1)`?
+
+
+**R:** `δ(q0,1)` = $q_1$ Linha do $q_0$ cruzando com a coluna do $1$.
+
+4. Qual é o resultado de `δ(q1,0)`?
+
+
+**R:** `δ(q1,0)` = $q_2$ Utiliza a mesma lógica, linha do $q_1$ com a coluna do $0$
+
+5. Qual é o resultado de `δ(q2,1)`?
+
+
+**R:** `δ(q2,1)` = $q_3$ Linha $q_2$ cruzando com a coluna $1$.
+
+6. Qual é o estado de aceitação?
+
+
+`F = {q1}`
+Estado de aceitação e $q_1$
+
 6. Desenhe o diagrama correspondente à tabela.
+
+
+| Estado | Entrada | Próximo estado |
+| ------ | ------- | -------------- |
+| q0     | 0       | q0             |
+| q0     | 1       | q1             |
+| q1     | 0       | q2             |
+| q1     | 1       | q1             |
+| q2     | 0       | q1             |
+| q2     | 1       | q1             |
+
 7. Justifique por que o autômato é determinístico.
+
+
+**R:** Ele é determinístico porque, para cada estado e cada símbolo de entrada (0 ou 1), existe apenas uma opção de caminho. Ou seja, o autômato sempre sabe exatamente para qual estado deve ir.
 
 ## Exercício 6 — Aceita ou rejeita?
 
