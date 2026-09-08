@@ -210,7 +210,7 @@ Construa um AFD sobre `Σ = {0,1}` que reconheça todas as cadeias que terminam 
 
 Entregue: conjunto de estados, alfabeto, estado inicial, estados finais, tabela, diagrama e teste de pelo menos cinco cadeias.
 
-R = 
+R =
 A. Conjunto de estados
 Q={q0,q1} Q={q0,q1}
 •	q0q0: estado inicial, usado quando a cadeia está vazia ou termina em 00;
