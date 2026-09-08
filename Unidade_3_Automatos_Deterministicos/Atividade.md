@@ -238,6 +238,8 @@ Entrada 0     q0
 Entrada 1     q1
 
 G. Diagrama do AFD
+
+
 ┌──────1───────┐
 │              ▼
 → (q0) ──1──> ((q1))
