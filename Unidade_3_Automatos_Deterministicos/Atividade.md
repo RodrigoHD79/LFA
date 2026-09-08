@@ -313,16 +313,16 @@ R =
 Definição formal
 
 
-$$M = (\Sigma, Q, \delta, q_0, F)$$
+M = (\Sigma, Q, \delta, q_0, F)
 
 onde:
-- $\Sigma = \{0, 1\}$
-- $Q = \{q_0, q_1\}$
-- $\delta: Q \times \Sigma \rightarrow Q$
-- $q_0$ = estado inicial
-- $F = \{q_0\}$
+- \Sigma = \{0, 1\}
+- Q = \{q_0, q_1\}
+- \delta: Q \times \Sigma \rightarrow Q
+- q_0$ = estado inicial
+- F = \{q_0\}
 
-Função de transição $\delta$
+Função de transição \delta
 
 | $\delta$ | 0 | 1 |
 |----------|---|---|
@@ -330,12 +330,12 @@ Função de transição $\delta$
 | $q_1$ | $q_1$ | $q_0$ |
 
 Definição explícita:
-- $\delta(q_0, 0) = q_0$
-- $\delta(q_0, 1) = q_1$
-- $\delta(q_1, 0) = q_1$
-- $\delta(q_1, 1) = q_0$
+- \delta(q_0, 0) = q_0
+- \delta(q_0, 1) = q_1
+- \delta(q_1, 0) = q_1
+- \delta(q_1, 1) = q_0
 
-Interpretação: $q_0$ representa quantidade par de 1s; $q_1$ representa quantidade ímpar de 1s.
+Interpretação: $q_0$ representa quantidade par de 1s; q_1 representa quantidade ímpar de 1s.
 
 Diagrama de estados
 
