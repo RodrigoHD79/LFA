@@ -214,8 +214,8 @@ d) 1101
 e) 000011010
 ```
 
-Para cada cadeia, registre todas as transições. Exemplo:
 
+Para cada cadeia, registre todas as transições. Exemplo:
 ```text
 Cadeia: 01
 q0 --0--> q0
@@ -224,13 +224,80 @@ Estado final: q1
 Resultado: ACEITA
 ```
 
+### a) `1`
+
+```text
+q0 --1--> q1
+Estado final: q1
+Resultado: ACEITA
+````
+### b) `0011001`
+```text
+q0 --0--> q0
+q0 --0--> q0
+q0 --1--> q1
+q1 --1--> q1
+q1 --0--> q2
+q2 --0--> q1
+q1 --1--> q1
+
+Caminho: q0 → q0 → q0 → q1 → q1 → q2 → q1 → q1
+
+Estado final: q1
+Resultado: ACEITA
+````
+### C) `010010`
+```text
+q0 --0--> q0
+q0 --1--> q1
+q1 --0--> q2
+q2 --0--> q1
+q1 --1--> q1
+q1 --0--> q2
+
+Caminho: q0 → q0 → q1 → q2 → q1 → q1 → q2
+
+Estado final: q2
+Resultado: REJEITADA
+```
+### d) `1101`
+```text
+q0 --1--> q1
+q1 --1--> q1
+q1 --0--> q2
+q2 --1--> q1
+
+Caminho: q0 → q1 → q1 → q2 → q1
+
+Estado final: q1
+Resultado: ACEITA
+```
+
+### e) `000011010`
+```text
+q0 --0--> q0
+q0 --0--> q0
+q0 --0--> q0
+q0 --0--> q0
+q0 --1--> q1
+q1 --1--> q1
+q1 --0--> q2
+q2 --1--> q1
+q1 --0--> q2
+
+Caminho: q0 → q0 → q0 → q0 → q0 → q1 → q1 → q2 → q1 → q2
+
+Estado final: q2
+Resultado: REJEITADA
+````
+
 | Cadeia | Caminho percorrido | Estado final | Resultado |
 |---|---|---|---|
-| `1` | | | |
-| `0011001` | | | |
-| `010010` | | | |
-| `1101` | | | |
-| `000011010` | | | |
+| `1` | q0 → q1 | q1 | ACEITA |
+| `0011001` | q0 → q0 → q0 → q1 → q1 → q2 → q1 → q1 | q1 | ACEITA |
+| `010010` | q0 → q0 → q1 → q2 → q1 → q1 → q2 | q2 | REJEITADA |
+| `1101` | q0 → q1 → q1 → q2 → q1 | q1 | ACEITA |
+| `000011010` | q0 → q0 → q0 → q0 → q0 → q1 → q1 → q2 → q1 → q2 | q2 | REJEITADA |
 
 ---
 
