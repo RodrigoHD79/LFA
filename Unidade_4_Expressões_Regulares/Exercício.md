@@ -1,9 +1,9 @@
-# Questão 1 —  Sobre {0,1}, descreva palavras que terminam em 00
+## Questão 1 —  Sobre {0,1}, descreva palavras que terminam em 00
 
 Todas as sequências que possuem um comprimento mínimo de dois caracteres e cujos dois últimos símbolos são obrigatoriamente zeros.
 Exemplos de palavras aceitas: 00, 100, 000, 1100, 010100, 111100...
 
-# Questão 2 — Sobre {a,b}, descreva palavras com exatamente dois a
+## Questão 2 — Sobre {a,b}, descreva palavras com exatamente dois a
 
 Todas as sequências que possuem exatamente dois símbolos a, podendo conter qualquer quantidade de símbolos b antes, entre ou depois dos dois a.
 
@@ -11,7 +11,7 @@ Exemplos de palavras aceitas: aa, aab, aba, baa, abba, baba, aabbbb, bbaabb, bba
 
 
 
-# Questão 3 — Desafio: matrícula acadêmica
+## Questão 3 — Desafio: matrícula acadêmica
 
 ## Enunciado
 
