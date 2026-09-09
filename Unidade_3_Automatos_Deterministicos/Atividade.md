@@ -383,18 +383,19 @@ Laços:
 
 H. O estado q1q1 é representado com dois círculos porque é o estado final.
 
+
 | Cadeia | Caminho percorrido | Resultado |
 | --- | --- | --- |
-| 111 | q0→1q1q_0 \\xrightarrow{1} q_1q0​1​q1​ | Aceita |
-| 010101 | q0→0q0→1q1q_0 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​0​q0​1​q1​ | Aceita |
-| 101101101 | q0→1q1→0q0→1q1q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​1​q1​0​q0​1​q1​ | Aceita |
-| 000100010001 | q0→0q0→0q0→0q0→1q1q_0 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​0​q0​0​q0​0​q0​1​q1​ | Aceita |
-| 110111011101 | q0→1q1→1q1→0q0→1q1q_0 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{1} q_1q0​1​q1​1​q1​0​q0​1​q1​ | Aceita |
-| ε\\varepsilonε | Permanece em q0q_0q0​ | Rejeita |
-| 000 | q0→0q0q_0 \\xrightarrow{0} q_0q0​0​q0​ | Rejeita |
-| 101010 | q0→1q1→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0q0​1​q1​0​q0​ | Rejeita |
-| 100100100 | q0→1q1→0q0→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0 \\xrightarrow{0} q_0q0​1​q1​0​q0​0​q0​ | Rejeita |
-| 111011101110 | q0→1q1→1q1→1q1→0q0q_0 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{1} q_1 \\xrightarrow{0} q_0q0​1​q1​1​q1​1​q1​0​q0​ | Rejeita |
+| `111` | $q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1$ | Aceita |
+| `010101` | $q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1$ | Aceita |
+| `101101101` | $q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1$ | Aceita |
+| `000100010001` | $q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1$ | Aceita |
+| `110111011101` | $q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1$ | Aceita |
+| $\varepsilon$ | Permanece em $q_0$ | Rejeita |
+| `000` | $q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{0} q_0$ | Rejeita |
+| `101010` | $q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0$ | Rejeita |
+| `100100100` | $q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{0} q_0$ | Rejeita |
+| `111011101110` | $q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{1} q_1 \xrightarrow{0} q_0$ | Rejeita |
 
 
 I. O AFD aceita exatamente as cadeias que terminam em 1, pois somente o estado q1 é final. Sempre que o último símbolo lido for 1, o autômato estará em q1. Quando o último símbolo for 0, o autômato retornará para q0, que não é um estado final.
