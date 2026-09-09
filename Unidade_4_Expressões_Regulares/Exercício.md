@@ -8,176 +8,253 @@ Exemplos de palavras aceitas: 00, 100, 000, 1100, 010100, 111100...
 Todas as sequências que possuem exatamente dois símbolos a, podendo conter qualquer quantidade de símbolos b antes, entre ou depois dos dois a.
 
 Exemplos de palavras aceitas: aa, aab, aba, baa, abba, baba, aabbbb, bbaabb, bbabb a...
-# Questão 3 — Identificador com duas maiúsculas, três algarismos e uma minúscula opcional
 
-# 1. Definição da linguagem
 
-O identificador deve obedecer exatamente ao seguinte formato:
+
+# Questão 3 — Desafio: matrícula acadêmica
+
+## Enunciado
+
+Construa uma expressão regular para reconhecer identificadores no formato:
 
 ```text
-DUAS_MAIÚSCULAS + TRÊS_ALGARISMOS + UMA_MINÚSCULA_OPCIONAL
+CURSO-ANO-NÚMERO-TURNO
 ```
 
-Formalmente:
+A matrícula deve obedecer a todas as regras definidas no desafio.
+
+---
+
+## Desafio: matrícula acadêmica
+
+### Regras
+
+- **Formato:** `CURSO-ANO-NÚMERO-TURNO`
+- **Curso:** `CCO`, `ESW` ou `SIS`
+- **Ano:** de `2024` a `2029`
+- **Número:** exatamente quatro algarismos
+- **Turno:** `M`, `T` ou `N`
+- devem ser utilizados hífens entre os blocos;
+- não são permitidos caracteres extras.
+
+---
+
+## 1. Linguagem
+
+A linguagem dos identificadores válidos pode ser representada por:
 
 |$$
-L = \{w \in \Sigma^* \mid w \text{ possui duas letras maiúsculas, três algarismos e uma letra minúscula opcional}\}
+L =
+\{
+c-a-n-t
+\mid
+c \in \{CCO, ESW, SIS\},
+a \in \{2024,2025,2026,2027,2028,2029\},
+n \in [0-9]^4,
+t \in \{M,T,N\}
+\}
 $$|
 
-A ordem dos elementos é obrigatória:
+Em palavras, a linguagem contém todas as cadeias que possuem:
 
-1. duas letras maiúsculas;
-2. três algarismos;
-3. zero ou uma letra minúscula.
-
-Não são permitidos espaços, hífens, símbolos especiais ou caracteres adicionais.
+```text
+um curso válido
++ um hífen
++ um ano entre 2024 e 2029
++ um hífen
++ exatamente quatro algarismos
++ um hífen
++ um turno válido
+```
 
 ---
 
 ## 2. Expressão regular
 
 ```regex
-^[A-Z]{2}[0-9]{3}[a-z]?$
+^(CCO|ESW|SIS)-202[4-9]-[0-9]{4}-(M|T|N)$
 ```
 
 ---
 
 ## 3. Explicação da expressão regular
 
-| Parte | Significado |
+| Parte da Regex | Significado |
 |---|---|
-| `^` | Início da cadeia |
-| `[A-Z]` | Uma letra maiúscula |
-| `{2}` | Exatamente duas ocorrências |
-| `[0-9]` | Um algarismo |
-| `{3}` | Exatamente três ocorrências |
-| `[a-z]` | Uma letra minúscula |
-| `?` | A letra minúscula pode aparecer zero ou uma vez |
-| `$` | Final da cadeia |
+| `^` | Indica o início da cadeia |
+| `(CCO\|ESW\|SIS)` | Permite os cursos `CCO`, `ESW` ou `SIS` |
+| `-` | Exige um hífen após o curso |
+| `202[4-9]` | Permite os anos de `2024` até `2029` |
+| `-` | Exige um hífen após o ano |
+| `[0-9]{4}` | Exige exatamente quatro algarismos |
+| `-` | Exige um hífen após o número |
+| `(M\|T\|N)` | Permite os turnos `M`, `T` ou `N` |
+| `$` | Indica o final da cadeia |
 
-A expressão regular exige que a cadeia inteira corresponda ao padrão. Por isso, os símbolos `^` e `$` impedem caracteres extras antes ou depois do identificador.
+Os símbolos `^` e `$` garantem que a cadeia inteira seja validada. Assim, caracteres extras no início ou no final causam rejeição.
 
 ---
 
-## 4. Exemplos aceitos
+## 4. Estrutura da matrícula
 
-| Entrada | Estrutura | Resultado |
+A estrutura exigida é:
+
+```text
+CURSO-ANO-NÚMERO-TURNO
+```
+
+Exemplo:
+
+```text
+CCO-2024-1234-M
+```
+
+Separação do exemplo:
+
+| Parte | Valor | Regra |
 |---|---|---|
-| `AB123` | `AB` + `123` | Aceita |
-| `AB123a` | `AB` + `123` + `a` | Aceita |
-| `CC202` | `CC` + `202` | Aceita |
-| `CC202x` | `CC` + `202` + `x` | Aceita |
-| `ES202` | `ES` + `202` | Aceita |
-| `ES202b` | `ES` + `202` + `b` | Aceita |
-| `SI999` | `SI` + `999` | Aceita |
-| `ZZ000z` | `ZZ` + `000` + `z` | Aceita |
+| Curso | `CCO` | Deve ser `CCO`, `ESW` ou `SIS` |
+| Ano | `2024` | Deve estar entre `2024` e `2029` |
+| Número | `1234` | Deve possuir exatamente quatro algarismos |
+| Turno | `M` | Deve ser `M`, `T` ou `N` |
 
 ---
 
-## 5. Exemplos rejeitados
+## 5. Exemplos aceitos
+
+| Entrada | Justificativa |
+|---|---|
+| `CCO-2024-1234-M` | Todos os blocos são válidos |
+| `ESW-2025-0001-T` | Curso, ano, número e turno válidos |
+| `SIS-2026-9999-N` | Número possui quatro algarismos |
+| `CCO-2027-4321-M` | Ano dentro do intervalo permitido |
+| `ESW-2028-0100-T` | Formato completo e válido |
+| `SIS-2029-9876-N` | Ano máximo permitido e turno válido |
+
+---
+
+## 6. Exemplos rejeitados
 
 | Entrada | Motivo da rejeição |
 |---|---|
-| `A123` | Possui apenas uma letra maiúscula |
-| `ABC123` | Possui três letras maiúsculas |
-| `AB12` | Possui apenas dois algarismos |
-| `AB1234` | Possui quatro algarismos |
-| `ab123` | As letras iniciais são minúsculas |
-| `Ab123` | A segunda letra não é maiúscula |
-| `AB123A` | A letra opcional deveria ser minúscula |
-| `AB123ab` | Possui duas letras minúsculas |
-| `AB-123` | Contém hífen |
-| `AB 123` | Contém espaço |
-| `AB123_` | Contém caractere extra |
-| `AB123!` | Contém símbolo especial |
-| `123AB` | Ordem dos elementos incorreta |
-| `AB` | Não possui três algarismos |
-| `ε` | Cadeia vazia |
+| `ABC-2024-1234-M` | Curso não permitido |
+| `CCO-2023-1234-M` | Ano inferior a `2024` |
+| `CCO-2030-1234-M` | Ano superior a `2029` |
+| `CCO-2024-123-M` | Número possui apenas três algarismos |
+| `CCO-2024-12345-M` | Número possui cinco algarismos |
+| `CCO-2024-1234-X` | Turno não permitido |
+| `CCO-2024-1234-MT` | Turno possui dois caracteres |
+| `CCO2024-1234-M` | Falta o hífen após o curso |
+| `CCO-2024_1234-M` | Foi utilizado `_` em vez de hífen |
+| `CCO-2024-1234M` | Falta o hífen antes do turno |
+| `CCO/2024/1234/M` | Foram utilizadas barras em vez de hífens |
+| `CCO-2024-1234-M-extra` | Existem caracteres extras |
+| `CCO-2024-1234` | Falta o turno |
+| `CCO-2024-1234-m` | O turno está em minúscula |
+| `cco-2024-1234-M` | O curso está em minúsculas |
 
 ---
 
-## 6. Casos de fronteira
+## 7. Casos de fronteira
 
-Os casos de fronteira verificam os menores e maiores formatos permitidos.
+Os casos de fronteira verificam os limites da linguagem.
 
-| Entrada | Resultado | Justificativa |
+| Entrada | Resultado esperado | Justificativa |
 |---|---|---|
-| `AA000` | Aceita | Formato mínimo sem minúscula |
-| `AA000a` | Aceita | Formato mínimo com minúscula |
-| `ZZ999` | Aceita | Limites superiores sem minúscula |
-| `ZZ999z` | Aceita | Limites superiores com minúscula |
-| `A000` | Rejeita | Falta uma letra maiúscula |
-| `AAA000` | Rejeita | Há uma letra maiúscula extra |
-| `AA00` | Rejeita | Falta um algarismo |
-| `AA0000` | Rejeita | Há um algarismo extra |
-| `AA000ab` | Rejeita | Há duas letras minúsculas |
-| `AA000 a` | Rejeita | Contém espaço |
+| `CCO-2024-0000-M` | Aceita | Menor ano e menor número válidos |
+| `SIS-2029-9999-N` | Aceita | Maior ano e maior número válidos |
+| `ESW-2024-0001-T` | Aceita | Primeiro ano permitido |
+| `CCO-2029-9999-M` | Aceita | Último ano permitido |
+| `CCO-2023-9999-M` | Rejeita | Ano abaixo do limite |
+| `CCO-2030-0000-M` | Rejeita | Ano acima do limite |
+| `CCO-2024-000-M` | Rejeita | Número possui três algarismos |
+| `CCO-2024-00000-M` | Rejeita | Número possui cinco algarismos |
+| `CCO-2024-0000` | Rejeita | Turno ausente |
+| `CCO-2024-0000-MM` | Rejeita | Turno possui dois símbolos |
 
 ---
 
-## 7. Tabela de testes
+## 8. Tabela de testes
 
 | Nº | Entrada | Resultado esperado | Resultado obtido |
 |---:|---|---|---|
-| 1 | `AB123` | Aceita | Aceita |
-| 2 | `AB123a` | Aceita | Aceita |
-| 3 | `CC202` | Aceita | Aceita |
-| 4 | `CC202x` | Aceita | Aceita |
-| 5 | `ES202b` | Aceita | Aceita |
-| 6 | `ZZ999z` | Aceita | Aceita |
-| 7 | `A123` | Rejeita | Rejeita |
-| 8 | `ABC123` | Rejeita | Rejeita |
-| 9 | `AB12` | Rejeita | Rejeita |
-| 10 | `AB1234` | Rejeita | Rejeita |
-| 11 | `ab123` | Rejeita | Rejeita |
-| 12 | `AB123A` | Rejeita | Rejeita |
-| 13 | `AB123ab` | Rejeita | Rejeita |
-| 14 | `AB-123` | Rejeita | Rejeita |
-| 15 | `AB 123` | Rejeita | Rejeita |
-| 16 | `AB123!` | Rejeita | Rejeita |
+| 1 | `CCO-2024-1234-M` | Aceita | Aceita |
+| 2 | `ESW-2025-0001-T` | Aceita | Aceita |
+| 3 | `SIS-2026-9999-N` | Aceita | Aceita |
+| 4 | `CCO-2027-4321-M` | Aceita | Aceita |
+| 5 | `ESW-2028-0100-T` | Aceita | Aceita |
+| 6 | `SIS-2029-9876-N` | Aceita | Aceita |
+| 7 | `ABC-2024-1234-M` | Rejeita | Rejeita |
+| 8 | `CCO-2023-1234-M` | Rejeita | Rejeita |
+| 9 | `CCO-2030-1234-M` | Rejeita | Rejeita |
+| 10 | `CCO-2024-123-M` | Rejeita | Rejeita |
+| 11 | `CCO-2024-12345-M` | Rejeita | Rejeita |
+| 12 | `CCO-2024-1234-X` | Rejeita | Rejeita |
+| 13 | `CCO2024-1234-M` | Rejeita | Rejeita |
+| 14 | `CCO-2024-1234-M-extra` | Rejeita | Rejeita |
 
 ---
 
-## 8. Justificativa
+## 9. Entradas quase corretas
 
-A expressão regular:
+As entradas abaixo são semelhantes às válidas, mas violam uma regra específica:
+
+| Entrada | Regra violada |
+|---|---|
+| `CCO-2024-123-M` | O número deve ter quatro algarismos |
+| `CCO-2024-12345-M` | O número deve ter exatamente quatro algarismos |
+| `CCO-2023-1234-M` | O ano deve começar em `2024` |
+| `CCO-2030-1234-M` | O ano máximo é `2029` |
+| `ABC-2024-1234-M` | O curso não está entre os permitidos |
+| `CCO-2024-1234-X` | O turno deve ser `M`, `T` ou `N` |
+| `CCO-2024-1234-M-extra` | A cadeia não pode conter caracteres extras |
+| `CCO2024-1234-M` | Os blocos devem ser separados por hífens |
+
+---
+
+## 10. Justificativa
+
+A Regex:
 
 ```regex
-^[A-Z]{2}[0-9]{3}[a-z]?$
+^(CCO|ESW|SIS)-202[4-9]-[0-9]{4}-(M|T|N)$
 ```
 
 representa corretamente a linguagem porque:
 
-- `[A-Z]{2}` exige exatamente duas letras maiúsculas;
-- `[0-9]{3}` exige exatamente três algarismos;
-- `[a-z]?` permite nenhuma ou uma letra minúscula;
-- `^` e `$` garantem que toda a cadeia siga o formato;
-- qualquer caractere extra faz com que a entrada seja rejeitada.
-
-Todos os exemplos aceitos seguem o formato definido, enquanto os exemplos rejeitados violam pelo menos uma das regras da linguagem.
+1. limita o curso às opções `CCO`, `ESW` e `SIS`;
+2. permite somente os anos de `2024` a `2029`;
+3. exige exatamente quatro algarismos para o número;
+4. limita o turno às opções `M`, `T` e `N`;
+5. exige os três hífens entre os blocos;
+6. impede caracteres extras no início ou no final da cadeia.
 
 ---
 
-## 9. Conclusão
+## 11. Conclusão
 
-A Regex final é:
+A expressão regular final do desafio é:
 
 ```regex
-^[A-Z]{2}[0-9]{3}[a-z]?$
+^(CCO|ESW|SIS)-202[4-9]-[0-9]{4}-(M|T|N)$
 ```
 
-Ela reconhece identificadores no formato:
+Ela reconhece exatamente as matrículas no formato:
 
 ```text
-Duas letras maiúsculas + três algarismos + uma letra minúscula opcional
+CURSO-ANO-NÚMERO-TURNO
 ```
 
-Exemplos válidos:
+com as seguintes restrições:
 
 ```text
-AB123
-AB123a
-CC202
-ES202b
-ZZ999z
+CURSO: CCO, ESW ou SIS
+ANO: 2024 até 2029
+NÚMERO: exatamente quatro algarismos
+TURNO: M, T ou N
+SEPARAÇÃO: hífens obrigatórios
+CARACTERES EXTRAS: não permitidos
 ```
+
+
+
