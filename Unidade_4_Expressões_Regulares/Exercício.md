@@ -4,9 +4,13 @@ Todas as sequências que possuem um comprimento mínimo de dois caracteres e cuj
 Exemplos de palavras aceitas: 00, 100, 000, 1100, 010100, 111100...
 
 # Questão 2 — Sobre {a,b}, descreva palavras com exatamente dois a
+
+Todas as sequências que possuem exatamente dois símbolos a, podendo conter qualquer quantidade de símbolos b antes, entre ou depois dos dois a.
+
+Exemplos de palavras aceitas: aa, aab, aba, baa, abba, baba, aabbbb, bbaabb, bbabb a...
 # Questão 3 — Identificador com duas maiúsculas, três algarismos e uma minúscula opcional
 
-## 1. Definição da linguagem
+# 1. Definição da linguagem
 
 O identificador deve obedecer exatamente ao seguinte formato:
 
