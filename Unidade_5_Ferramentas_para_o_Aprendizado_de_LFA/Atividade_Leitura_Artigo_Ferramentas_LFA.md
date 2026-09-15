@@ -41,11 +41,11 @@ Registre suas anotações no quadro abaixo.
 
 | Elemento observado | Anotação do estudante | Página/seção |
 |---|---|---|
-| Problema educacional |os estudantes de tais textos precisam lidar com um nível de complexidade adicional, além daquele que é inerente aos assuntos da área, para conseguir bons resultados na disciplina [Ramos 2009]  | pagina 1 |
-| Contribuição das ferramentas | fundamental na formação superior em computação, formalismo de linguagens e compiladores são matérias cuja compreensão dos formalismos envolvidos e das fases de compilação não é simples. Essa característica justifica a proposição de ferramentas de apoio com fins didático [Alckmin e Mello 2010]. | pagina 1 |
-| Diferença entre ferramentas | 3.2. Automaton Simulator Automaton Simulator [Doty 2020] é uma ferramenta visual online de código aberto que permite a criação de AFND, AFD e AP. As transições podem ser elaboradas ao clicar nas setas, assim como há também a criação de estados. - 3.3. UC Davis Automaton Simulator O processo é um pouco diferente das ferramentas mais comuns. A inserção dos estados em formato de código cria a representação gráfica apenas dos estados e, na sequência, é possível usar um campo de inserção de dados para testar strings no AFD/AFND em tempo real. Dessa forma, o bloco de código abaixo gera a representação visual apresentada na Figura 3. | pagina 4 e 5 |
+| Problema educacional |os estudantes de tais textos precisam lidar com um nível de complexidade adicional, além daquele que é inerente aos assuntos da área, para conseguir bons resultados na disciplina [Ramos 2009]  | Página 1 |
+| Contribuição das ferramentas | fundamental na formação superior em computação, formalismo de linguagens e compiladores são matérias cuja compreensão dos formalismos envolvidos e das fases de compilação não é simples. Essa característica justifica a proposição de ferramentas de apoio com fins didático [Alckmin e Mello 2010]. | Página 1 |
+| Diferença entre ferramentas | 3.2. Automaton Simulator Automaton Simulator [Doty 2020] é uma ferramenta visual online de código aberto que permite a criação de AFND, AFD e AP. As transições podem ser elaboradas ao clicar nas setas, assim como há também a criação de estados. - 3.3. UC Davis Automaton Simulator O processo é um pouco diferente das ferramentas mais comuns. A inserção dos estados em formato de código cria a representação gráfica apenas dos estados e, na sequência, é possível usar um campo de inserção de dados para testar strings no AFD/AFND em tempo real. Dessa forma, o bloco de código abaixo gera a representação visual apresentada na Figura 3. | Página 4 e 5 |
 | Limitação ou lacuna | A despeito dos testes ainda não terem sido realizados, este trabalho apresenta uma grande contribuição por reunir ferramentas para serem usadas de modo criterioso. | Página 9 |
-| Afirmação para debate |  |  |
+| Afirmação para debate | O uso de ludicidade, interfaces e mecanismos que aumentem a interatividade ao mesmo tempo em que diminuem a dificuldade de assimilação de tópicos complexos | Página 9 |
 
 ## Etapa 2 - Compreensão do artigo em grupo (20 minutos)
 
