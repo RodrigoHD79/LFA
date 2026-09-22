@@ -64,19 +64,29 @@ Discutam e registrem respostas consensuais para as questões a seguir.
 
 Cada grupo deverá selecionar **duas ferramentas** descritas no artigo e completar a matriz.
 
+
 | Critério | Ferramenta 1 | Ferramenta 2 |
 |---|---|---|
-| Nome |  |  |
-| AFD |  |  |
-| AFND |  |  |
-| Autômato de Pilha |  |  |
-| Interface gráfica |  |  |
-| Uso de código |  |  |
-| Web ou instalável |  |  |
-| Conversão AFND para AFD |  |  |
-| Principal vantagem didática |  |  |
-| Possível dificuldade de uso |  |  |
-| Situação de aula indicada |  |  |
+| Nome | JFLAP 7.0 | Automaton Simulator (Doty 2020) |
+| AFD | Sim | Sim |
+| AFND | Sim | Sim |
+| Autômato de Pilha | Sim | Sim |
+| Interface gráfica | Sim | Sim |
+| Uso de código | Não (manipulação com mouse) | Não (cliques nas setas) |
+| Web ou instalável | Instalável (Java) | Web (navegador) |
+| Conversão AFND para AFD | Sim | Não mencionada |
+| Principal vantagem didática | Criação iterativa de autômatos com teste de cada estado; suporta Máquinas de Turing | Acesso imediato sem instalação; histórico de testes em sessão; edição de estados em tempo real |
+| Possível dificuldade de uso | Requer Java 1.3+ instalado; aprendizado inicial da interface | Nenhuma mencionada (interface intuitiva) |
+| Situação de aula indicada | Laboratórios com computadores configurados; aulas teóricas com prática complementar | Aulas remotas; laboratórios sem instalação; prática contínua online |
+
+---
+
+## Fonte
+
+Baseado no artigo: **Ferramentas para o Aprendizado de Linguagens Formais e Autômatos** 
+- Autores: José Luiz Villela Marcondes Mioni, Cinthyan Renata Sachs C. de Barbosa
+- Instituição: Universidade Estadual de Londrina (UEL)
+- Tabela 1 (p. 6) e seções 3.1 e 3.2
 
 Após preencher a matriz, o grupo deverá responder:
 
