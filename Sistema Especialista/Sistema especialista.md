@@ -42,6 +42,275 @@ O agente é organizado em quatro especialidades:
 
 `marca`, `modelo`, `ano`, `quilometragem`, `combustível`, `luzes_painel`, `sintoma_descrito`, `código_OBD2` (quando houver), `ruído`, `vazamento`, `cheiro`, `fumaça`, `tempo_do_problema`, `histórico_de_manutenção` e `data_da_última_troca_de_óleo`.
 
+### Modelos de perguntas da triagem
+
+As perguntas seguem uma ordem pensada para o Módulo 0: o agente identifica o motivo do contato e checa sinais de emergência **antes** de pedir os dados do veículo.
+
+**Legenda:**
+- **(Escolha única)**: o cliente marca só uma opção.
+- **(Múltipla escolha)**: o cliente pode marcar várias.
+- **⚠** a opção dispara uma regra do Módulo 0; o agente interrompe a triagem e dá a orientação de segurança.
+- **→** a opção leva a uma pergunta de acompanhamento ou a uma regra.
+
+---
+
+#### Etapa 1 — Motivo do contato
+
+**P1. `sintoma_descrito` — O que te traz aqui hoje?** (Escolha única)
+
+- a) Revisão ou troca de óleo → R2.2
+- b) Uma luz acendeu no painel → P5
+- c) O carro está fazendo um barulho diferente → P12
+- d) Problema nos freios → P1.1
+- e) Problema na direção, suspensão ou pneus → P1.2
+- f) Superaquecimento ou vazamento de líquido → P1.3
+- g) Problema no câmbio → P1.4
+- h) Carro sem força, falhando ou engasgando → R5.7
+- i) Quero só um orçamento ou agendamento → Módulo 6
+- j) Outro (descrever em texto livre) → R1.6
+
+**P1.1. Como está o freio?** (Múltipla escolha)
+
+- a) Freio fraco, precisa pisar mais forte → R2.3
+- b) Pedal mole ou afundando até o fim ⚠ R0.2
+- c) Ruído ao frear (chiado ou rangido) → R2.3
+- d) Carro puxa para um lado ao frear → R2.3
+- e) Volante ou carro trepida ao frear → R5.3
+- f) O freio não responde ⚠ R0.2
+
+**P1.2. O que você percebe na direção, suspensão ou pneus?** (Múltipla escolha)
+
+- a) Barulho ou batida ao passar em buracos ou lombadas → R2.4 / R5.2
+- b) Carro inclinado ou mais baixo de um lado → R2.4 / R5.2
+- c) Amortecedor com óleo escorrendo → R5.2
+- d) Pneu gastando mais de um lado → R2.4 / R4.4
+- e) Volante vibra em alta velocidade → R4.4
+- f) Carro puxa para um lado ao dirigir → R4.4
+- g) Direção travou ou ficou de repente muito dura ⚠ R0.6
+
+**P1.3. Sobre a temperatura ou o vazamento:** (Múltipla escolha)
+
+- a) O ponteiro de temperatura subiu, mas nenhuma luz acendeu → R2.5
+- b) O ponteiro está no vermelho ou a luz de temperatura acendeu ⚠ R0.4
+- c) Está saindo vapor do capô ⚠ R0.4
+- d) A ventoinha fica sempre ligada → R2.5
+- e) O reservatório de água/arrefecimento está baixo → R5.4
+- f) Vi líquido embaixo do carro → P4
+
+**P1.4. Qual o problema no câmbio?** (Múltipla escolha)
+
+- a) Trancos na troca de marcha → R2.6 / R5.5
+- b) O carro patina (o motor acelera, mas o carro não anda) → R2.6 / R5.6
+- c) Demora para engatar a marcha → R2.6
+- d) A embreagem demora a pegar (câmbio manual) → R5.6
+
+**P1.5. O câmbio do carro é:** (Escolha única, perguntada só se P1.4 foi respondida)
+
+- a) Manual
+- b) Automático ou automatizado
+- c) Não sei
+
+---
+
+#### Etapa 2 — Checagem de emergência (Módulo 0)
+
+**P2. `fumaça` — Está saindo fumaça ou vapor do carro?** (Escolha única)
+
+- a) Não
+- b) Sim, do capô ⚠ R0.1 / R0.4
+- c) Sim, do escapamento → P2.1
+- d) Não sei
+
+**P2.1. Qual a cor da fumaça do escapamento?** (Escolha única)
+
+- a) Branca e grossa ⚠ R0.1
+- b) Preta → R3.4 (mistura rica)
+- c) Azulada → R5.1 (possível queima de óleo)
+- d) Não sei
+
+**P3. `cheiro` — Está sentindo algum cheiro diferente?** (Múltipla escolha)
+
+- a) Nenhum cheiro diferente
+- b) Cheiro de gasolina ⚠ R0.1
+- c) Cheiro de queimado (borracha, plástico ou embreagem) → P1.4
+- d) Cheiro adocicado (líquido de arrefecimento) → R5.4
+- e) Outro cheiro
+
+**P4. `vazamento` — Tem alguma mancha ou poça embaixo do carro?** (Escolha única)
+
+- a) Não
+- b) Sim, preta ou marrom (óleo do motor) → R5.1
+- c) Sim, verde, rosa ou laranja (arrefecimento) → R5.4
+- d) Sim, vermelha (fluido de câmbio ou direção) → P1.4
+- e) Sim, com cheiro de gasolina ⚠ R0.1
+- f) Sim, transparente e sem cheiro (provavelmente água do ar-condicionado; normal)
+- g) Não sei / não reparei
+
+**P5. `luzes_painel` — Qual luz está acesa no painel?** (Múltipla escolha)
+
+- a) Nenhuma
+- b) Luz da injeção (desenho de motor, amarela) → P5.1
+- c) Luz do óleo (desenho de regador, vermelha) ⚠ R0.3
+- d) Luz da temperatura (desenho de termômetro, vermelha) ⚠ R0.4
+- e) Luz do freio (círculo com "!", vermelha) ⚠ R0.2
+- f) Luz do ABS (escrito "ABS", amarela) → P5.2
+- g) Luz do airbag (desenho de pessoa com bola, vermelha) → R0.5
+- h) Luz da bateria (desenho de bateria, vermelha) → R3.8
+- i) Outra luz / não sei identificar
+
+**P5.1. A luz da injeção está:** (Escolha única)
+
+- a) Acesa fixa → R2.1
+- b) Piscando → R3.11 (ALTA_PRIORIDADE)
+
+**P5.2. Junto com a luz do ABS, o carro está freando pior?** (Escolha única)
+
+- a) Sim → R0.5 (ALTA_PRIORIDADE)
+- b) Não
+- c) Não sei
+
+---
+
+#### Etapa 3 — Dados do veículo (Módulo 1)
+
+**P6. `marca` — Qual a marca do carro?** (Escolha única)
+
+- a) Fiat
+- b) Volkswagen
+- c) Chevrolet
+- d) Hyundai
+- e) Toyota
+- f) Renault
+- g) Honda
+- h) Jeep
+- i) Ford
+- j) Nissan
+- k) Outra (digitar)
+
+**P7. `modelo` — Qual o modelo?** (Escolha única)
+
+As opções são carregadas conforme a marca escolhida em P6. Exemplo para Fiat:
+
+- a) Mobi
+- b) Argo
+- c) Cronos
+- d) Strada
+- e) Toro
+- f) Pulse
+- g) Uno
+- h) Palio
+- i) Outro (digitar)
+
+**P8. `ano` — Qual o ano do carro?** (Escolha única)
+
+- a) Antes de 1996 → R1.3
+- b) 1996 a 2005
+- c) 2006 a 2015
+- d) 2016 a 2020
+- e) 2021 ou mais novo
+- f) Não sei
+
+> Se a base de códigos depender do ano exato, o agente pode pedir o ano em um campo numérico logo depois da faixa.
+
+**P9. `combustível` — Qual o combustível do carro?** (Escolha única)
+
+- a) Gasolina
+- b) Flex (gasolina e etanol)
+- c) Diesel → R1.2
+- d) Elétrico → R1.2
+- e) Híbrido → R1.2
+- f) Não sei
+
+**P10. `quilometragem` — Quantos km o carro tem rodados?** (Escolha única)
+
+- a) Até 10.000 km
+- b) De 10.001 a 40.000 km
+- c) De 40.001 a 80.000 km → R4.3
+- d) De 80.001 a 150.000 km → R4.3
+- e) Mais de 150.000 km → R4.3
+- f) Não sei
+
+---
+
+#### Etapa 4 — Detalhes do problema
+
+**P11. `código_OBD2` — Você passou o carro em um scanner?** (Escolha única, perguntada só se P5 = b ou P1 = h)
+
+- a) Sim, e tenho o código → campo de texto, validado pela R1.4
+- b) Sim, mas não lembro o código
+- c) Não passei → R5.7 (recomendar leitura)
+
+**P12. `ruído` — Que tipo de barulho o carro faz?** (Múltipla escolha)
+
+- a) Nenhum barulho diferente
+- b) Chiado ou rangido → P12.1
+- c) Batida seca → P12.1
+- d) Barulho metálico no motor → R5.1
+- e) Zumbido ou ronco → P12.1
+- f) Outro
+
+**P12.1. Quando o barulho acontece?** (Múltipla escolha)
+
+- a) Ao frear → R2.3
+- b) Ao passar em buracos ou lombadas → R2.4 / R5.2
+- c) Nas curvas → R2.4
+- d) Com o carro parado e o motor ligado → R5.1
+- e) Ao trocar de marcha → R2.6
+- f) O tempo todo
+
+**P13. `tempo_do_problema` — Desde quando você percebeu o problema?** (Escolha única)
+
+- a) Hoje, de repente
+- b) Há alguns dias
+- c) Há algumas semanas
+- d) Há mais de um mês
+- e) Não sei
+
+**P13.1. O problema:** (Escolha única)
+
+- a) Começou de repente
+- b) Foi piorando aos poucos
+- c) Vai e volta
+
+---
+
+#### Etapa 5 — Histórico (Módulo 4)
+
+**P14. `data_da_última_troca_de_óleo` — Quando foi a última troca de óleo?** (Escolha única)
+
+- a) Há menos de 6 meses
+- b) Entre 6 e 12 meses
+- c) Há mais de 12 meses → R4.1
+- d) Não lembro → R4.1 (recomendar troca preventiva)
+
+**P14.1. Quantos km o carro rodou desde essa troca?** (Escolha única)
+
+- a) Menos de 5.000 km
+- b) Entre 5.000 e 10.000 km
+- c) Mais de 10.000 km → R4.1
+- d) Não sei
+
+**P15. `histórico_de_manutenção` — O que já foi feito no carro no último ano?** (Múltipla escolha)
+
+- a) Revisão completa
+- b) Troca de pastilhas ou discos de freio
+- c) Troca do fluido de freio (se ausente e km > 40.000 → R4.3)
+- d) Alinhamento e balanceamento
+- e) Conserto na suspensão
+- f) Troca de correia dentada
+- g) Conserto no motor ou no câmbio
+- h) Nada / não lembro
+
+---
+
+#### Boas práticas para as perguntas
+
+- **Sempre incluir "Não sei":** registrar o fato como desconhecido e seguir, sem travar a triagem.
+- **Opção "Outro" com texto livre:** captura casos que a lista não cobre; o texto passa pela R1.6.
+- **Perguntas condicionais:** as perguntas de acompanhamento (P1.1, P5.1, P12.1 etc.) só aparecem conforme a resposta anterior, deixando a triagem curta.
+- **Linguagem leiga:** luzes descritas pelo desenho e cor, líquidos pela cor, para o cliente reconhecer sem saber o nome técnico.
+- **Pular o que já foi respondido:** se uma resposta já preenche outro fato (ex.: P1.3c "vapor do capô" já responde P2), o agente não repete a pergunta.
+
 ### Ordem de avaliação
 
 A avaliação segue a ordem dos módulos. O **Módulo 0** é sempre avaliado primeiro e, se ele definir um estado de emergência, os módulos seguintes não são executados.
