@@ -1,6 +1,6 @@
 Sistema Especialista de Filtragem de Mensagens Indesejadas 
 
-Um pouco sobre o sistema e como terminar-lo
+Um pouco sobre o sistema e como executa-lo
 
 Desenvolvi este projeto para a disciplina de Linguagens Formais e Autômatos (LFA). O sistema analisa mensagens com base em regras definidas no programa e informa se elas são indesejadas ou suspeitas. Também permite cadastrar e excluir termos suspeitos, que ficam armazenados em um arquivo de texto.
 
